@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>António Madeira — Senior Content Strategist &amp; Web3 Writer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --bg:        #080c14;
+  --surf1:     #0e1520;
+  --surf2:     #131c2e;
+  --border:    #1e2d45;
+  --cyan:      #00d4ff;
+  --purple:    #7b61ff;
+  --green:     #22d3a0;
+  --text:      #e8f0fe;
+  --text-sec:  #8aa0be;
+  --text-muted:#4a6080;
+  --max-w:     960px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; justify-content: center; align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(8,12,20,0.8);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(30,45,69,0.6);
+}
+.nav-name {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.05rem; letter-spacing: 0.14em;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; text-decoration: none;
+}
+
+/* ── HERO ── */
+.hero {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 5rem 2rem 4rem;
+  max-width: var(--max-w); margin: 0 auto;
+}
+.hero-photo-wrap {
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 2px solid rgba(0,212,255,0.3);
+  box-shadow: 0 0 28px rgba(0,212,255,0.18);
+  overflow: hidden; margin-bottom: 1.5rem; flex-shrink: 0;
+}
+.hero-photo-wrap img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.hero-photo-fallback {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.6rem;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 100px; padding: 0.4rem 1.1rem;
+  font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.04em;
+  margin-bottom: 1.5rem;
+}
+.pulse-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.6); }
+  50%       { box-shadow: 0 0 0 7px rgba(0,212,255,0); }
+}
+
+.hero h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(1.9rem, 5vw, 3.2rem); line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+.grad { 
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-bio {
+  max-width: 560px; color: var(--text-sec); font-size: 1.05rem; margin-bottom: 2rem;
+}
+
+/* social buttons */
+.social-row { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+.social-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text-sec); text-decoration: none;
+  font-size: 0.875rem; font-weight: 500;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.social-btn:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,212,255,0.05); }
+.social-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ── AUTHOR CHIPS ── */
+.author-bar {
+  max-width: var(--max-w); margin: 0 auto 4rem; padding: 0 2rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+.author-label {
+  font-size: 0.7rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+.chip {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--border); border-radius: 100px;
+  color: var(--text-sec); text-decoration: none;
+  font-size: 0.825rem; font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+}
+.chip:hover { border-color: var(--cyan); color: var(--cyan); }
+.chip img { width: 18px; height: 18px; border-radius: 3px; object-fit: contain; }
+
+/* ── SECTIONS ── */
+section { padding: 5rem 2rem; }
+.section-inner { max-width: var(--max-w); margin: 0 auto; }
+.section-alt { background: rgba(14,21,32,0.55); }
+
+.sec-num {
+  font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.22em; color: var(--text-muted);
+  text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.sec-head {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.75rem;
+}
+.sec-rule {
+  width: 40px; height: 3px; border-radius: 2px; margin-bottom: 1rem;
+}
+.sec-desc { color: var(--text-sec); max-width: 640px; font-size: 0.975rem; }
+
+/* ── CARDS ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem; margin-top: 2.5rem;
+}
+.card {
+  background: var(--surf1); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+}
+.card:hover { transform: translateY(-2px); }
+.card-cyan:hover   { border-color: rgba(0,212,255,0.35);   box-shadow: 0 0 24px rgba(0,212,255,0.08); }
+.card-purple:hover { border-color: rgba(123,97,255,0.35);  box-shadow: 0 0 24px rgba(123,97,255,0.08); }
+.card-green:hover  { border-color: rgba(34,211,160,0.35);  box-shadow: 0 0 24px rgba(34,211,160,0.08); }
+
+.card-img {
+  height: 140px; overflow: hidden; flex-shrink: 0;
+  background: var(--surf2);
+  display: flex; align-items: center; justify-content: center;
+}
+.card-cyan   .card-img { background: rgba(0,212,255,0.04); }
+.card-purple .card-img { background: rgba(123,97,255,0.04); }
+.card-green  .card-img { background: rgba(34,211,160,0.04); }
+
+.card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.img-placeholder {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.4rem; color: var(--text-muted); font-size: 0.75rem;
+  width: 100%; height: 100%;
+}
+
+.card-body { padding: 1.1rem; display: flex; flex-direction: column; flex: 1; gap: 0.4rem; }
+.card-pub  { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.card-date { font-size: 0.75rem; color: var(--text-muted); }
+.card-title {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 0.95rem; line-height: 1.3; color: var(--text); flex: 1;
+}
+.card-desc { font-size: 0.825rem; color: var(--text-sec); line-height: 1.5; }
+.card-actions { display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.4rem 0.85rem; border-radius: 6px;
+  font-size: 0.775rem; font-weight: 600; text-decoration: none;
+  border: 1px solid; white-space: nowrap;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: background 0.2s;
+}
+.btn-cyan   { border-color: var(--cyan);   color: var(--cyan);   background: transparent; }
+.btn-cyan:hover   { background: rgba(0,212,255,0.1); }
+.btn-purple { border-color: var(--purple); color: var(--purple); background: transparent; }
+.btn-purple:hover { background: rgba(123,97,255,0.1); }
+.btn-green  { border-color: var(--green);  color: var(--green);  background: transparent; }
+.btn-green:hover  { background: rgba(34,211,160,0.1); }
+.btn-muted  { border-color: var(--border); color: var(--text-muted); background: transparent; }
+.btn-muted:hover  { border-color: var(--text-sec); color: var(--text-sec); }
+
+/* ── CASE STUDY ── */
+.cs-card {
+  background: var(--surf1); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  max-width: 700px; margin: 2.5rem auto 0;
+  transition: border-color 0.25s;
+}
+.cs-card:hover { border-color: rgba(123,97,255,0.3); }
+
+.cs-img {
+  height: 160px; overflow: hidden;
+  background: rgba(123,97,255,0.05);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.cs-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cs-img-fallback { color: var(--purple); }
+
+.cs-body { padding: 1.75rem; }
+.cs-tag {
+  font-size: 0.7rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--purple);
+  font-weight: 600; margin-bottom: 0.75rem;
+}
+.cs-title {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--text);
+}
+.cs-desc { color: var(--text-sec); font-size: 0.925rem; margin-bottom: 1.5rem; }
+
+.ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.ba-panel {
+  background: var(--surf2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  text-align: center;
+}
+.ba-label { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--text); }
+.ba-period { font-size: 0.75rem; color: var(--text-muted); }
+.ba-img {
+  width: 100%; height: 90px;
+  background: rgba(123,97,255,0.06);
+  border-radius: 6px; overflow: hidden;
+  border: 1px dashed rgba(123,97,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.ba-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cs-note { font-size: 0.75rem; color: var(--text-muted); text-align: center; font-style: italic; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 1rem; text-align: center;
+}
+.footer-name {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.3rem; letter-spacing: 0.1em;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.footer-tag { font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
+.footer-links { display: flex; gap: 1rem; align-items: center; }
+.footer-links a { color: var(--text-sec); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+.footer-links a:hover { color: var(--cyan); }
+.footer-sep { color: var(--border); }
+.footer-copy { color: var(--text-muted); font-size: 0.8rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+  .ba-grid { grid-template-columns: 1fr; }
+  .hero { padding: 3.5rem 1.5rem 3rem; }
+  section { padding: 3.5rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">ANTÓNIO MADEIRA</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-photo-wrap">
+    <img
+      src="assets/antonio-madeira.jpeg"
+      alt="António Madeira"
+      onerror="this.style.display='none'; this.parentNode.querySelector('.hero-photo-fallback').style.display='flex';"
+    >
+    <div class="hero-photo-fallback" style="display:none;">AM</div>
+  </div>
+
+  <div class="hero-badge">
+    <span class="pulse-dot"></span>
+    Senior Content Strategist · Web3 Specialist
+  </div>
+
+  <h1>Writing at the frontier of <span class="grad">Tech</span></h1>
+
+  <p class="hero-bio">
+    10+ years publishing across leading blockchain and tech outlets. Hundreds of articles,
+    many cited in academic research and books. I help projects communicate complex ideas clearly.
+  </p>
+
+  <div class="social-row">
+    <a href="https://www.linkedin.com/in/antonio-madeira" target="_blank" rel="noopener" class="social-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="mailto:antoniomadeira616@email.com" class="social-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Email
+    </a>
+    <a href="https://t.me/antoniokmadeira" target="_blank" rel="noopener" class="social-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      Telegram
+    </a>
+  </div>
+</div>
+
+<!-- AUTHOR CHIPS -->
+<div class="author-bar">
+  <span class="author-label">Live author pages</span>
+  <div class="chips">
+    <a href="https://medium.com/@antoniojmadeira" target="_blank" rel="noopener" class="chip">
+      <img src="logos/medium.png" alt="" onerror="this.style.display='none'"> Medium
+    </a>
+    <a href="https://web.archive.org/web/20250626001205/https://cointelegraph.com/authors/antonio-madeira" target="_blank" rel="noopener" class="chip">
+      <img src="logos/cointelegraph.png" alt="" onerror="this.style.display='none'"> Cointelegraph
+    </a>
+    <a href="https://crypto.news/author/antonio-madeira/" target="_blank" rel="noopener" class="chip">
+      <img src="logos/cryptonews.png" alt="" onerror="this.style.display='none'"> Crypto.news
+    </a>
+    <a href="https://bitcoinist.com/author/antonio-madeira/" target="_blank" rel="noopener" class="chip">
+      <img src="logos/bitcoinist.png" alt="" onerror="this.style.display='none'"> Bitcoinist
+    </a>
+    <a href="https://cryptoslate.com/author/antonio-madeira/" target="_blank" rel="noopener" class="chip">
+      <img src="logos/cryptoslate.png" alt="" onerror="this.style.display='none'"> CryptoSlate
+    </a>
+  </div>
+</div>
+
+<!-- SECTION 01: BLOG POSTS -->
+<section>
+<div class="section-inner">
+  <div class="sec-num">01 / Blog Posts</div>
+  <h2 class="sec-head">Blog Posts &amp; Analysis</h2>
+  <div class="sec-rule" style="background:linear-gradient(90deg,var(--purple),var(--cyan))"></div>
+  <p class="sec-desc">Blog posts, educational deep-dives, opinion pieces, and SEO-optimized content marketing on blockchain technology, AI, and emergent technology.</p>
+  <div class="grid">
+      <div class="card card-purple">
+        <div class="card-img">
+          <img src="blog/Prediction-markets-are-broken-image.png" alt="Prediction Markets Are Broken" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--purple)">Medium</span>
+          <span class="card-date">25 Apr 2026</span>
+          <h3 class="card-title">Prediction Markets Are Broken</h3>
+          <p class="card-desc">Brazil just banned Polymarket and Kalshi, and it won't be the last country to do so. Prediction markets are being gamed in ways their promoters don't want to talk about. Here's why the model is structurally broken.</p>
+          <div class="card-actions">
+            <a href="https://medium.com/@antoniojmadeira/prediction-markets-are-broken-6e849960c36a" target="_blank" rel="noopener" class="btn btn-purple">Read Live →</a>
+            <a href="blog/Prediction-markets-are-broken.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-purple">
+        <div class="card-img">
+          <img src="blog/The-AI-Bubble-Crypto-Degens-Have-Been-Here-Before-image.png" alt="The AI Bubble: Crypto Degens Have Been Here Before" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--purple)">Medium</span>
+          <span class="card-date">21 Apr 2026</span>
+          <h3 class="card-title">The AI Bubble: Crypto Degens Have Been Here Before</h3>
+          <p class="card-desc">An obscure shoe company rebranded itself around "AI," secured vague funding, and saw its stock skyrocket 600% overnight, echoing past speculative bubbles like NFTs where hype drives gains and late investors often pay the price.</p>
+          <div class="card-actions">
+            <a href="https://medium.com/@antoniojmadeira/the-ai-bubble-crypto-degens-have-been-here-before-1dc5ea9c333c" target="_blank" rel="noopener" class="btn btn-purple">Read Live →</a>
+            <a href="blog/The-AI-Bubble-Crypto-Degens-Have-Been-Here-Before.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-purple">
+        <div class="card-img">
+          <img src="blog/from-pixel-to-block-splinterlands-image.png" alt="From pixel to block: Splinterlands" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--purple)">NonFungible.com</span>
+          <span class="card-date">19 Oct 2021</span>
+          <h3 class="card-title">From pixel to block: Splinterlands</h3>
+          <p class="card-desc">Splinterlands is one of the first trading card games using blockchain and NFTs. Let's review it.</p>
+          <div class="card-actions">
+            <a href="https://nonfungible.com/news/game/from-pixel-to-block-splinterlands" target="_blank" rel="noopener" class="btn btn-purple">Read Live →</a>
+            <a href="blog/from-pixel-to-block-splinterlands.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-purple">
+        <div class="card-img">
+          <img src="blog/aioz-is-now-available-for-trading-on-indodax-image.png" alt="$AIOZ is now available for trading on Indodax" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--purple)">Medium: AIOZ Network</span>
+          <span class="card-date">27 Jul 2021</span>
+          <h3 class="card-title">$AIOZ is now available for trading on Indodax</h3>
+          <p class="card-desc">AIOZ announced its listing on Indodax, marking a key step in expanding access to the Indonesian market and growing its decentralized content delivery ecosystem.</p>
+          <div class="card-actions">
+            <a href="https://medium.com/aioz-network/aioz-is-now-available-for-trading-on-indodax-1f34ce7eee5d" target="_blank" rel="noopener" class="btn btn-purple">Read Live →</a>
+            <a href="blog/aioz-is-now-available-for-trading-on-indodax.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-purple">
+        <div class="card-img">
+          <img src="blog/Bullish-or-bearish-Crypto-analysts-share-views-for-the-rest-of-2021-image.png" alt="Bullish or bearish? Crypto analysts share views for the rest of 2021" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--purple)">CryptoSlate</span>
+          <span class="card-date">25 Jun 2021</span>
+          <h3 class="card-title">Bullish or bearish? Crypto analysts share views for the rest of 2021</h3>
+          <p class="card-desc">After witnessing one of the most significant sell-offs in crypto history, the May 19 crash, most remain uncertain about the direction of the market.</p>
+          <div class="card-actions">
+            <a href="https://cryptoslate.com/bullish-or-bearish-crypto-analysts-share-their-view-for-where-the-market-could-go-from-here/" target="_blank" rel="noopener" class="btn btn-purple">Read Live →</a>
+            <a href="blog/Bullish-or-bearish-Crypto-analysts-share-views-for-the-rest-of-2021.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-purple">
+        <div class="card-img">
+          <img src="blog/Is-DeFi-Summer-bound-to-repeat-itself-in-2021-image.png" alt="Is DeFi Summer bound to repeat itself in 2021?" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--purple)">CryptoSlate</span>
+          <span class="card-date">20 Jun 2021</span>
+          <h3 class="card-title">Is DeFi Summer bound to repeat itself in 2021?</h3>
+          <p class="card-desc">Last year we saw the DeFi space boom independently from Bitcoin. The DeFi summer of 2020, as it became known, acted as a prelude to this year's bull market.</p>
+          <div class="card-actions">
+            <a href="https://cryptoslate.com/is-defi-summer-bound-to-repeat-itself-in-2021/" target="_blank" rel="noopener" class="btn btn-purple">Read Live →</a>
+            <a href="blog/Is-DeFi-Summer-bound-to-repeat-itself-in-2021.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 02: NEWS & ANALYSIS -->
+<section class="section-alt">
+<div class="section-inner">
+  <div class="sec-num">02 / News &amp; Analysis</div>
+  <h2 class="sec-head">Breaking News &amp; Market Analysis</h2>
+  <div class="sec-rule" style="background:linear-gradient(90deg,var(--cyan),var(--purple))"></div>
+  <p class="sec-desc">Breaking news and market analysis covering tech, crypto, DeFi, and blockchain — published across top-tier financial, web3, and tech outlets.</p>
+  <div class="grid">
+      <div class="card card-cyan">
+        <div class="card-img">
+          <img src="news/south-korea-and-hong-kong-join-forces-for-crypto-crackdown-image.png" alt="South Korea and Hong Kong join forces for crypto crackdown" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--cyan)">Crypto.News</span>
+          <span class="card-date">16 Feb 2023</span>
+          <h3 class="card-title">South Korea and Hong Kong join forces for crypto crackdown</h3>
+          <p class="card-desc">South Korean and Hong Kong Customs administrations have struck a partnership to help curtail illegal foreign transactions that are carried out via digital assets.</p>
+          <div class="card-actions">
+            <a href="https://crypto.news/south-korea-and-hong-kong-join-forces-for-crypto-crackdown/" target="_blank" rel="noopener" class="btn btn-cyan">Read Live →</a>
+            <a href="news/south-korea-and-hong-kong-join-forces-for-crypto-crackdown.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-cyan">
+        <div class="card-img">
+          <img src="news/localbitcoins-shuts-down-after-decade-of-p2p-trading-image.png" alt="LocalBitcoins shuts down after decade of P2P trading" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--cyan)">Crypto.News</span>
+          <span class="card-date">09 Feb 2023</span>
+          <h3 class="card-title">LocalBitcoins shuts down after decade of P2P trading</h3>
+          <p class="card-desc">After a decade of providing bitcoin trading and wallet services, LocalBitcoins has announced its shutdown.</p>
+          <div class="card-actions">
+            <a href="https://crypto.news/localbitcoins-shuts-down-after-decade-of-p2p-trading/" target="_blank" rel="noopener" class="btn btn-cyan">Read Live →</a>
+            <a href="news/localbitcoins-shuts-down-after-decade-of-p2p-trading.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-cyan">
+        <div class="card-img">
+          <img src="news/the-rise-of-dex-robots-amms-push-for-an-industrial-revolution-in-trading-image.png" alt="The rise of DEX robots: AMMs push for an industrial revolution in trading" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--cyan)">Cointelegraph</span>
+          <span class="card-date">09 May 2021</span>
+          <h3 class="card-title">The rise of DEX robots: AMMs push for an industrial revolution in trading</h3>
+          <p class="card-desc">AMM-based decentralized exchanges are seeing unprecedented adoption, but are they the future of trading?</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20240120031008mp_/https://cointelegraph.com/news/the-rise-of-dex-robots-amms-push-for-an-industrial-revolution-in-trading" target="_blank" rel="noopener" class="btn btn-cyan">Read Live →</a>
+            <a href="news/the-rise-of-dex-robots-amms-push-for-an-industrial-revolution-in-trading.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-cyan">
+        <div class="card-img">
+          <img src="news/nft-trading-cards-a-new-way-to-own-collectibles-or-an-asset-bubble-image.png" alt="NFT trading cards: A new way to own collectibles or an asset bubble?" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--cyan)">Cointelegraph</span>
+          <span class="card-date">24 Apr 2021</span>
+          <h3 class="card-title">NFT trading cards: A new way to own collectibles or an asset bubble?</h3>
+          <p class="card-desc">NFT collectibles are blowing up, but are they a bubble waiting to pop or a revolution waiting to explode?</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20250126094047mp_/https://cointelegraph.com/news/nft-trading-cards-a-new-way-to-own-collectibles-or-an-asset-bubble" target="_blank" rel="noopener" class="btn btn-cyan">Read Live →</a>
+            <a href="news/nft-trading-cards-a-new-way-to-own-collectibles-or-an-asset-bubble.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-cyan">
+        <div class="card-img">
+          <img src="news/can-t-beat-em-join-em-mastercard-and-visa-make-a-case-for-bitcoin-image.png" alt="Can't beat 'em? Join 'em: Mastercard and Visa make a case for Bitcoin" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--cyan)">Cointelegraph</span>
+          <span class="card-date">22 Feb 2021</span>
+          <h3 class="card-title">Can't beat 'em? Join 'em: Mastercard and Visa make a case for Bitcoin</h3>
+          <p class="card-desc">Mastercard is set to open the shop doors to crypto as a means of payment in 2021, but it will likely be a challenge for the firm.</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20250726031342/https://cointelegraph.com/news/can-t-beat-em-join-em-mastercard-and-visa-make-a-case-for-bitcoin" target="_blank" rel="noopener" class="btn btn-cyan">Read Live →</a>
+            <a href="news/can-t-beat-em-join-em-mastercard-and-visa-make-a-case-for-bitcoin.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-cyan">
+        <div class="card-img">
+          <img src="news/bitcoin-cash-fork-how-what-when-why-image.png" alt="Bitcoin Cash fork – how, what, when and why?" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--cyan)">International Business Times</span>
+          <span class="card-date">01 Aug 2017</span>
+          <h3 class="card-title">Bitcoin Cash fork – how, what, when and why?</h3>
+          <p class="card-desc">A deep dive into the origins of Bitcoin Cash, detailing how it emerged from Bitcoin's long-running scaling debate as a hard fork on August 1, 2017.</p>
+          <div class="card-actions">
+            <a href="https://www.ibtimes.co.uk/bitcoin-cash-fork-how-what-when-why-1632887" target="_blank" rel="noopener" class="btn btn-cyan">Read Live →</a>
+            <a href="news/bitcoin-cash-fork-how-what-when-why.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 03: GUIDES -->
+<section>
+<div class="section-inner">
+  <div class="sec-num">03 / Guides</div>
+  <h2 class="sec-head">Educational Guides</h2>
+  <div class="sec-rule" style="background:linear-gradient(90deg,var(--green),var(--cyan))"></div>
+  <p class="sec-desc">Step-by-step educational content explaining complex tech and finance concepts to mainstream audiences.</p>
+  <div class="grid">
+      <div class="card card-green">
+        <div class="card-img">
+          <img src="guides/how-to-mine-ethereum-image.png" alt="How to Mine Ethereum" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--green)">CryptoCompare</span>
+          <span class="card-date">10 May 2019</span>
+          <h3 class="card-title">How to Mine Ethereum</h3>
+          <p class="card-desc">If you're interested in dedicating computing resources to mining cryptocurrency, this article explains how to begin mining Ethereum and covers the different mining software options.</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20230131133850mp_/https://www.cryptocompare.com/mining/guides/how-to-mine-ethereum/" target="_blank" rel="noopener" class="btn btn-green">Read Live →</a>
+            <a href="guides/how-to-mine-ethereum.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-green">
+        <div class="card-img">
+          <img src="guides/what-is-usdt-and-how-to-use-it-image.png" alt="What is Tether (USDT), How to Get It and How to Store It" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--green)">CryptoCompare</span>
+          <span class="card-date">13 Mar 2019</span>
+          <h3 class="card-title">What is Tether (USDT), How to Get It and How to Store It</h3>
+          <p class="card-desc">Learn what Tether (USDT) is, how the world's largest stablecoin works, its controversial history, and how to acquire it — whether through exchanges or directly from the issuer.</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20230602034321mp_/https://www.cryptocompare.com/coins/guides/what-is-usdt-and-how-to-use-it/" target="_blank" rel="noopener" class="btn btn-green">Read Live →</a>
+            <a href="guides/what-is-usdt-and-how-to-use-it.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-green">
+        <div class="card-img">
+          <img src="guides/the-dao-the-hack-the-soft-fork-and-the-hard-fork-image.png" alt="The DAO, the Hack, the Soft Fork and the Hard Fork" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--green)">CryptoCompare</span>
+          <span class="card-date">12 Mar 2019</span>
+          <h3 class="card-title">The DAO, the Hack, the Soft Fork and the Hard Fork</h3>
+          <p class="card-desc">How and why The DAO was created, how it was exploited, how the soft fork failed, and why the hard fork led to a split community and the creation of Ethereum Classic.</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20230131133850mp_/https://www.cryptocompare.com/coins/guides/the-dao-the-hack-the-soft-fork-and-the-hard-fork/" target="_blank" rel="noopener" class="btn btn-green">Read Live →</a>
+            <a href="guides/the-dao-the-hack-the-soft-fork-and-the-hard-fork.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-green">
+        <div class="card-img">
+          <img src="guides/how-to-mine-zcash-image.png" alt="How to mine Zcash - ZEC (Windows)" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--green)">CryptoCompare</span>
+          <span class="card-date">27 Feb 2017</span>
+          <h3 class="card-title">How to mine Zcash - ZEC (Windows)</h3>
+          <p class="card-desc">Today we are going to show you how to mine Zcash with your CPU and GPU on Windows, using Nicehash miner for CPU and the Claymore miner for GPU.</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20230129062920mp_/https://www.cryptocompare.com/mining/guides/how-to-mine-zcash/" target="_blank" rel="noopener" class="btn btn-green">Read Live →</a>
+            <a href="guides/how-to-mine-zcash.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-green">
+        <div class="card-img">
+          <img src="guides/what-is-the-ethereum-ice-age-image.png" alt="What is the Ethereum Ice Age?" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--green)">CryptoCompare</span>
+          <span class="card-date">28 Jul 2016</span>
+          <h3 class="card-title">What is the Ethereum Ice Age?</h3>
+          <p class="card-desc">The Ethereum Ice Age is a difficulty adjustment scheme put in place to ensure everyone has an incentive to move to the new blockchain once the hard-fork is implemented.</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20230528023339mp_/https://www.cryptocompare.com/coins/guides/what-is-the-ethereum-ice-age/" target="_blank" rel="noopener" class="btn btn-green">Read Live →</a>
+            <a href="guides/what-is-the-ethereum-ice-age.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-green">
+        <div class="card-img">
+          <img src="guides/how-to-set-up-a-bitcoin-miner-image.png" alt="How to set up a Bitcoin miner" onerror="this.outerHTML='<div class=\'img-placeholder\'><svg width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/><line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;/><line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;/><polyline points=&quot;10 9 9 9 8 9&quot;/></svg><span>Article image</span></div>'">
+        </div>
+        <div class="card-body">
+          <span class="card-pub" style="color:var(--green)">CryptoCompare</span>
+          <span class="card-date">12 Feb 2015</span>
+          <h3 class="card-title">How to set up a Bitcoin miner</h3>
+          <p class="card-desc">Setting up a Bitcoin miner can be quite a complex task. But with a bit of effort and time it should be easy to get the hang of. Here's how.</p>
+          <div class="card-actions">
+            <a href="https://web.archive.org/web/20221206095258mp_/https://www.cryptocompare.com/mining/guides/how-to-set-up-a-bitcoin-miner/" target="_blank" rel="noopener" class="btn btn-green">Read Live →</a>
+            <a href="guides/how-to-set-up-a-bitcoin-miner.pdf" target="_blank" rel="noopener" class="btn btn-muted">PDF</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 04: SOCIAL MEDIA -->
+<section class="section-alt">
+<div class="section-inner">
+  <div class="sec-num">04 / Social Media</div>
+  <h2 class="sec-head">Community Growth</h2>
+  <div class="sec-rule" style="background:linear-gradient(90deg,var(--purple),var(--green))"></div>
+  <p class="sec-desc">Content strategy and community growth for Tech projects.</p>
+
+  <div class="cs-card">
+    <div class="cs-img">
+      <img src="social/social-media-aioz-case-study-image.png" alt="AIOZ Case Study"
+        onerror="this.outerHTML='<div class=&quot;cs-img-fallback&quot;><svg width=&quot;44&quot; height=&quot;44&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><polyline points=&quot;22 7 13.5 15.5 8.5 10.5 2 17&quot;/><polyline points=&quot;16 7 22 7 22 13&quot;/></svg></div>'">
+    </div>
+    <div class="cs-body">
+      <div class="cs-tag">Case Study · AIOZ Network</div>
+      <div class="cs-title">AIOZ Network — Twitter Growth Case Study</div>
+      <p class="cs-desc">Managed content strategy and social media for AIOZ Network, a decentralised AI and streaming infrastructure project. The results speak for themselves: Their Twitter following grew from roughly 20,000 followers to over 68,000 in a few months.</p>
+      <div class="ba-grid">
+        <div class="ba-panel">
+          <span class="ba-label">Before</span>
+          <span class="ba-period">Early 2021</span>
+          <div class="ba-img">
+            <img src="social/aioz-twitter-before-image.png" alt="Before"
+              onerror="this.outerHTML='<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; style=&quot;color:var(--text-muted)&quot;><rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot;/><circle cx=&quot;8.5&quot; cy=&quot;8.5&quot; r=&quot;1.5&quot;/><polyline points=&quot;21 15 16 10 5 21&quot;/></svg>'">
+          </div>
+          <a href="social/aioz-twitter-before.pdf" target="_blank" rel="noopener" class="btn btn-purple" style="font-size:0.75rem">View →</a>
+        </div>
+        <div class="ba-panel">
+          <span class="ba-label">After</span>
+          <span class="ba-period">Late 2021</span>
+          <div class="ba-img">
+            <img src="social/aioz-twitter-after-image.png" alt="After"
+              onerror="this.outerHTML='<svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; style=&quot;color:var(--text-muted)&quot;><rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot;/><circle cx=&quot;8.5&quot; cy=&quot;8.5&quot; r=&quot;1.5&quot;/><polyline points=&quot;21 15 16 10 5 21&quot;/></svg>'">
+          </div>
+          <a href="social/aioz-twitter-after.pdf" target="_blank" rel="noopener" class="btn btn-purple" style="font-size:0.75rem">View →</a>
+        </div>
+      </div>
+      <p class="cs-note">Screenshots sourced from the Wayback Machine (web.archive.org)</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">ANTÓNIO MADEIRA</div>
+  <div class="footer-tag">Available for freelance and full-time opportunities</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/antonio-madeira" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="footer-sep">·</span>
+    <a href="mailto:antoniomadeira616@email.com">Email</a>
+    <span class="footer-sep">·</span>
+    <a href="https://t.me/antoniokmadeira" target="_blank" rel="noopener">Telegram</a>
+  </div>
+  <div class="footer-copy">© 2026 António Madeira</div>
+</footer>
+
+</body>
+</html>
